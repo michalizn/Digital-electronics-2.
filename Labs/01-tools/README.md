@@ -33,8 +33,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 #define LED_GREEN   PB5 // AVR pin where green LED is connected
 #define SHORT_DELAY 500 // Delay in milliseconds
 #define LONG_DELAY  1000 // Delay in milliseconds
-#define W_DELAY     300 // Delay in milliseconds
-#define A_DELAY     100 // Delay in milliseconds
+#define MID_DELAY     250 // Delay in milliseconds
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
 # define F_CPU 16000000 // CPU frequency in Hz required for delay
@@ -58,51 +57,11 @@ int main(void)
     {
         PORTB = PORTB | (1<<LED_GREEN);
         // Pause several milliseconds
-        _delay_ms(LONG_DELAY);
-        
-        PORTB = PORTB & ~(1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(A_DELAY);
-        
-        PORTB = PORTB | (1<<LED_GREEN);
-        // Pause several milliseconds
         _delay_ms(SHORT_DELAY);
         
         PORTB = PORTB & ~(1<<LED_GREEN);
         // Pause several milliseconds
-        _delay_ms(A_DELAY);
-        
-        PORTB = PORTB | (1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(SHORT_DELAY);
-        
-        PORTB = PORTB & ~(1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(W_DELAY);
-        
-        PORTB = PORTB | (1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(SHORT_DELAY);
-        
-        PORTB = PORTB & ~(1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(W_DELAY);
-        
-        PORTB = PORTB | (1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(SHORT_DELAY);
-        
-        PORTB = PORTB & ~(1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(A_DELAY);
-        
-        PORTB = PORTB | (1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(SHORT_DELAY);
-        
-        PORTB = PORTB & ~(1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(A_DELAY);
+        _delay_ms(MID_DELAY);
         
         PORTB = PORTB | (1<<LED_GREEN);
         // Pause several milliseconds
@@ -110,25 +69,7 @@ int main(void)
         
         PORTB = PORTB & ~(1<<LED_GREEN);
         // Pause several milliseconds
-        _delay_ms(A_DELAY);
-        
-        PORTB = PORTB | (1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(LONG_DELAY);
-        
-        PORTB = PORTB & ~(1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(A_DELAY);
-        
-        PORTB = PORTB | (1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(LONG_DELAY);
-        
-        PORTB = PORTB & ~(1<<LED_GREEN);
-        // Pause several milliseconds
-        _delay_ms(A_DELAY);
-        
-
+        _delay_ms(MID_DELAY);
     }
 
     // Will never reach this
