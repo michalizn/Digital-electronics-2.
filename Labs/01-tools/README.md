@@ -80,4 +80,4 @@ int main(void)
 
 2. Scheme of Morse code application, i.e. connection of AVR device, LED, resistor, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
 
-   ![circuit](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/01-tools/pictures/circuit.PNG)
+   ![circuit](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/01-tools/pictures/Schematic_New%20Project_2021-09-24.png)
