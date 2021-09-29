@@ -1,4 +1,4 @@
-# Lab 2: YOUR_FIRSTNAME FAMILYNAME
+# Lab 2: Michal Baranek
 
 Link to your `Digital-electronics-2` GitHub repository:
 
@@ -12,7 +12,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 | **DDRB** | **Description** |
 | :-: | :-- |
 | 0 | Input pin |
-| 1 | |
+| 1 |  |
 
 | **PORTB** | **Description** |
 | :-: | :-- |
