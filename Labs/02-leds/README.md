@@ -22,7 +22,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 | **DDRB** | **PORTB** | **Direction** | **Internal pull-up resistor** | **Description** |
 | :-: | :-: | :-: | :-: | :-- |
 | 0 | 0 | input | no | Tri-state, high-impedance |
-| 0 | 1 | input | yes/no | Pxn will source current if ext. pulled low./Tri-state (Hi-Z) |
+| 0 | 1 | input | yes | Pxn will source current if ext. pulled low |
 | 1 | 0 | output |no | Output Low (Sink) |
 | 1 | 1 | output | no | Output High (Source) |
 
@@ -41,7 +41,7 @@ int main(void)
     // Set pin as output in Data Direction Register...
     DDRC = DDRC | (1<<LED_BLUE);
     // ...and turn LED off in Data Register
-    PORTC = PORTC & (1<<LED_BLUE);
+    PORTC = PORTC & ~(1<<LED_BLUE);
 
     // Infinite loop
     while (1)
@@ -54,11 +54,11 @@ int main(void)
         // Pause several milliseconds
         _delay_ms(BLINK_DELAY);
         
-        PORTC = PORTC & ~(1<<LED_BLUE);
+        PORTC = PORTC | (1<<LED_BLUE);
         // Pause several milliseconds
         _delay_ms(BLINK_DELAY);
         
-        PORTC = PORTC | (1<<LED_BLUE);
+        PORTC = PORTC & ~ (1<<LED_BLUE);
         // Pause several milliseconds
         _delay_ms(BLINK_DELAY);
     }
@@ -74,17 +74,43 @@ int main(void)
 1. Part of the C code listing with syntax highlighting, which toggles LEDs only if push button is pressed. Otherwise, the value of the LEDs does not change. Let the push button is connected to port D:
 
 ```c
-    // Configure Push button at port D and enable internal pull-up resistor
-    // WRITE YOUR CODE HERE
+int main(void)
+{
+	DDRB  = DDRB | (1<<LED_GREEN);
+	PORTB = PORTB & ~(1<<LED_GREEN);
 
-    // Infinite loop
-    while (1)
-    {
-        // Pause several milliseconds
-        _delay_ms(BLINK_DELAY);
+	DDRC  = DDRC | (1<<LED_BLUE);
+	PORTC = PORTC & ~(1<<LED_BLUE);
+	
+	DDRD  = DDRD & ~ (1<<PUSH_BUTTON);
+	PORTD = PORTD & ~ (1<<PUSH_BUTTON);
 
-        // WRITE YOUR CODE HERE
-    }
+	// Infinite loop
+	while (1)
+	{
+		if (PIND & (1<<PUSH_BUTTON) == 1)
+		{
+		PORTB = PORTB | (1<<LED_GREEN);
+		// Pause several milliseconds
+		_delay_ms(BLINK_DELAY);
+		
+		PORTB = PORTB & ~(1<<LED_GREEN);
+		// Pause several milliseconds
+		_delay_ms(BLINK_DELAY);
+		
+		PORTC = PORTC | (1<<LED_BLUE);
+		// Pause several milliseconds
+		_delay_ms(BLINK_DELAY);
+		
+		PORTC = PORTC & ~ (1<<LED_BLUE);
+		// Pause several milliseconds
+		_delay_ms(BLINK_DELAY);
+		}
+	}
+
+	// Will never reach this
+	return 0;
+}
 ```
 
 
