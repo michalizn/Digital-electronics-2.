@@ -1,4 +1,4 @@
-# Lab 3: YOUR_FIRSTNAME FAMILYNAME
+# Lab 3: Michal Baranek
 
 Link to your `Digital-electronics-2` GitHub repository:
 
