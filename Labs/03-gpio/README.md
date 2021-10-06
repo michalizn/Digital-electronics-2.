@@ -16,7 +16,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 | `uint16_t` | 16 | 0, 1, 2 to 65,535 | Unsigned 16-bit integer |
 | `int16_t`  | 16 | -32,768, -32,767 to 32,767 | Signed 16-bit integer |
 | `float`    | 32 | -3.4e+38, ..., 3.4e+38 | Single-precision floating-point |
-| `void`     |  |  |  |
+| `void`     | 0 | 0 | Function return type |
 
 
 ### GPIO library
@@ -28,17 +28,39 @@ Link to your `Digital-electronics-2` GitHub repository:
 2. Part of the C code listing with syntax highlighting, which toggles LEDs only if push button is pressed. Otherwise, the value of the LEDs does not change. Use function from your GPIO library. Let the push button is connected to port D:
 
 ```c
+int main(void)
+{
+    // Green LED at port B
+    GPIO_config_output(&DDRB, LED_GREEN);
+    GPIO_write_low(&PORTB, LED_GREEN);
+
+    // Configure the second LED at port C
+    GPIO_config_output(&DDRC, LED_BLUE);
+    GPIO_write_low(&PORTC, LED_BLUE);
+
     // Configure Push button at port D and enable internal pull-up resistor
-    // WRITE YOUR CODE HERE
+    GPIO_config_input_pullup(&DDRD, PUSH_BUTTON);
 
     // Infinite loop
     while (1)
     {
-        // Pause several milliseconds
-        _delay_ms(BLINK_DELAY);
-
-        // WRITE YOUR CODE HERE
+        uint8_t BUTTON_TRIGGER = GPIO_read(&PIND, PUSH_BUTTON);
+        
+        if(BUTTON_TRIGGER == 0)
+        {
+            // Pause several milliseconds
+            _delay_ms(BLINK_DELAY);
+            GPIO_toggle(&PORTB, LED_GREEN);
+            
+            // Pause several milliseconds
+            _delay_ms(BLINK_DELAY);
+            GPIO_toggle(&PORTC, LED_BLUE);
+        }
     }
+
+    // Will never reach this
+    return 0;
+}
 ```
 
 
