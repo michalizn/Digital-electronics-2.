@@ -28,7 +28,22 @@ Link to your `Digital-electronics-2` GitHub repository:
  * @name  Definitions of Timer/Counter0
  * @note  F_CPU = 16 MHz
  */
-// WRITE YOUR CODE HERE
+/** @brief Stop timer, prescaler 000 --> STOP */
+#define TIM1_stop()           TCCR0B &= ~((1<<CS02) | (1<<CS01) | (1<<CS00));
+/** @brief Set overflow 16u, prescaler 001 --> 1 */
+#define TIM1_overflow_4ms()   TCCR0B &= ~((1<<CS02) | (1<<CS01)); TCCR1B |= (1<<CS00);
+/** @brief Set overflow 128u, prescaler 010 --> 8 */
+#define TIM1_overflow_33ms()  TCCR0B &= ~((1<<CS02) | (1<<CS00)); TCCR1B |= (1<<CS01);
+/** @brief Set overflow 1024u, prescaler 011 --> 64 */
+#define TIM1_overflow_262ms() TCCR0B &= ~(1<<CS02); TCCR0B |= (1<<CS01) | (1<<CS10);
+/** @brief Set overflow 4096u, prescaler 100 --> 256 */
+#define TIM1_overflow_1s()    TCCR0B &= ~((1<<CS01) | (1<<CS00)); TCCR1B |= (1<<CS02);
+/** @brief Set overflow 16384u, prescaler // 101 --> 1024 */
+#define TIM1_overflow_4s()    TCCR0B &= ~(1<<CS01); TCCR0B |= (1<<CS02) | (1<<CS00);
+/** @brief Enable overflow interrupt, 1 --> enable */
+#define TIM1_overflow_interrupt_enable()  TIMSK0 |= (1<<TOIE0);
+/** @brief Disable overflow interrupt, 0 --> disable */
+#define TIM1_overflow_interrupt_disable() TIMSK0 &= ~(1<<TOIE0);
 ```
 
 3. Flowchart figure for function `main()` and interrupt service routine `ISR(TIMER1_OVF_vect)` of application that ensures the flashing of one LED in the timer interruption. When the button is pressed, the blinking is faster, when the button is released, it is slower. Use only a timer overflow and not a delay library.
