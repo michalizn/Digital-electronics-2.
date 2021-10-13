@@ -13,19 +13,13 @@ Link to your `Digital-electronics-2` GitHub repository:
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Timer/Counter0 | 8  | 16u | 128u | -- | 1024u | -- | 4096u | 16384u |
 | Timer/Counter1 | 16 | 4.096m | 32.8m | -- | 262.2m | -- | 1.05 | 4.2 |
-| Timer/Counter2 | 8  |  |      |    | |    | | |
-
-| **Module** | **Operation** | **I/O register(s)** | **Bit(s)** |
-| :-: | :-- | :-: | :-- |
-| Timer/Counter0 | Prescaler<br><br>8-bit data value<br>Overflow interrupt enable | <br><br><br> | <br><br><br> |
-| Timer/Counter1 | Prescaler<br><br>16-bit data value<br>Overflow interrupt enable | TCCR1B<br><br>TCNT1H, TCNT1L<br>TIMSK1 | CS12, CS11, CS10<br>(000: stopped, 001: 1, 010: 8, 011: 64, 100: 256, 101: 1024)<br>TCNT1[15:0]<br>TOIE1 (1: enable, 0: disable) |
-| Timer/Counter2 | Prescaler<br><br>8-bit data value<br>Overflow interrupt enable | <br><br><br> | <br><br><br> |
+| Timer/Counter2 | 8  | 16u | 128u | -- | 1024u | -- | 4096u | 16384u |
 
 ### Timer library
 
 1. In your words, describe the difference between common C function and interrupt service routine.
-   * Function
-   * Interrupt service routine
+   * Function => Something that CPU do normally all the time.
+   * Interrupt service routine => Some interrupt from some peripherals, which cause some behivour to CPU, that have to stop a function a do the Interrupt service routine.
 
 2. Part of the header file listing with syntax highlighting, which defines settings for Timer/Counter0:
 
@@ -34,7 +28,22 @@ Link to your `Digital-electronics-2` GitHub repository:
  * @name  Definitions of Timer/Counter0
  * @note  F_CPU = 16 MHz
  */
-// WRITE YOUR CODE HERE
+#define TIM0_stop()           TCCR0B &= ~((1<<CS02) | (1<<CS01) | (1<<CS00));
+/** @brief Set overflow 16u, prescaler 001 --> 1 */
+#define TIM0_overflow_16u()   TCCR0B &= ~((1<<CS02) | (1<<CS01)); TCCR1B |= (1<<CS00);
+/** @brief Set overflow 128u, prescaler 010 --> 8 */
+#define TIM0_overflow_128u()  TCCR0B &= ~((1<<CS02) | (1<<CS00)); TCCR1B |= (1<<CS01);
+/** @brief Set overflow 1024u, prescaler 011 --> 64 */
+#define TIM0_overflow_1024u() TCCR0B &= ~(1<<CS02); TCCR0B |= (1<<CS01) | (1<<CS10);
+/** @brief Set overflow 4096u, prescaler 100 --> 256 */
+#define TIM0_overflow_4096u()    TCCR0B &= ~((1<<CS01) | (1<<CS00)); TCCR1B |= (1<<CS02);
+/** @brief Set overflow 16384u, prescaler // 101 --> 1024 */
+#define TIM0_overflow_16384u()    TCCR0B &= ~(1<<CS01); TCCR0B |= (1<<CS02) | (1<<CS00);
+/** @brief Enable overflow interrupt, 1 --> enable */
+#define TIM0_overflow_interrupt_enable()  TIMSK0 |= (1<<TOIE0);
+/** @brief Disable overflow interrupt, 0 --> disable */
+#define TIM0_overflow_interrupt_disable() TIMSK0 &= ~(1<<TOIE0);
+
 ```
 
 3. Flowchart figure for function `main()` and interrupt service routine `ISR(TIMER1_OVF_vect)` of application that ensures the flashing of one LED in the timer interruption. When the button is pressed, the blinking is faster, when the button is released, it is slower. Use only a timer overflow and not a delay library.
