@@ -48,11 +48,11 @@ Link to your `Digital-electronics-2` GitHub repository:
 
 3. Flowchart figure for function `main()` and interrupt service routine `ISR(TIMER1_OVF_vect)` of application that ensures the flashing of one LED in the timer interruption. When the button is pressed, the blinking is faster, when the button is released, it is slower. Use only a timer overflow and not a delay library.
 
-   ![your figure]()
+   ![Flowchart](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/04-interrupts/images/aa.drawio.png)
 
 
 ### Knight Rider
 
 1. Scheme of Knight Rider application with four LEDs and a push button, connected according to Multi-function shield. Connect AVR device, LEDs, resistors, push button, and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
 
-   ![your figure]()
+   ![Scheme](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/04-interrupts/images/Capture.PNG)
