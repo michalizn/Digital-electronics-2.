@@ -43,10 +43,10 @@ ISR(TIMER1_OVF_vect)
 {
     // WRITE YOUR CODE HERE
     cnt0++;
-    if (cnt0 > 9){
+    if(cnt0 > 9){
         cnt0 = 0;
         cnt1++;
-        if (cnt1 > 5){
+        if(cnt1 > 5){
             cnt1 = 0;
         }
     }
@@ -64,6 +64,14 @@ ISR(TIMER0_OVF_vect)
     static uint8_t pos = 0;
 
     // WRITE YOUR CODE HERE
+    if(pos == 0){
+        SEG_update_shift_regs(cnt0, pos);
+        pos = 1;
+    }
+    else{
+        SEG_update_shift_regs(cnt1, pos);
+        pos = 0;
+    }
 
 }
 ```
