@@ -18,6 +18,7 @@ Link to your `Digital-electronics-2` GitHub repository:
    | D[7:4] | PD[7-4] | Higher nibble for data byte |
 ## ASCII
 ASCII is American Standard Code for Information Interchange. It is a table treating english characters and other mostly used characters.
+![ASCII](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/06-lcd/pictures/1200px-ASCII_Code_Chart.svg.png)
 Values for uppercase 'A' to 'Z' are 0x40 to 0x5a, 'a' to 'z' are 0x61 to 0x7a, '0' to '9' are 0x30 to 0x39.
 
 ## Input parameters and description of the functions
