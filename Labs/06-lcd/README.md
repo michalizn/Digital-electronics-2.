@@ -57,7 +57,22 @@ Values for uppercase 'A' to 'Z' are 0x40 to 0x5a, 'a' to 'z' are 0x61 to 0x7a, '
 // Custom character definition
 uint8_t customChar[16] = {
     // WRITE YOUR CODE HERE
-
+    0b01110,
+    0b10001,
+    0b01110,
+    0b00100,
+    0b11111,
+    0b00100,
+    0b01010,
+    0b11011,
+    0b00000,
+    0b00111,
+    0b01110,
+    0b11100,
+    0b10000,
+    0b00000,
+    0b01110,
+    0b11011
 };
 ```
 
