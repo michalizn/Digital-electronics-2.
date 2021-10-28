@@ -38,14 +38,14 @@ Values for uppercase 'A' to 'Z' are 0x40 to 0x5a, 'a' to 'z' are 0x61 to 0x7a, '
 
 2. (Hand-drawn) picture of time signals between ATmega328P and LCD keypad shield (HD44780 driver) when transmitting three character data `De2`.
 
-   ![your figure]()
+   ![Signals](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/06-lcd/pictures/Scan%20Oct%2028%2C%202021%20at%2010.44%20AM.jpg)
 
 
 ### Stopwatch
 
 1. Flowchart figure for `TIMER2_OVF_vect` interrupt service routine which overflows every 16&nbsp;ms but it updates the stopwatch LCD approximately every 100&nbsp;ms (6 x 16&nbsp;ms = 100&nbsp;ms). Display tenths of a second and seconds `00:seconds.tenths`. Let the stopwatch counts from `00:00.0` to `00:59.9` and then starts again. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.
 
-   ![your figure]()
+   ![Flowchart](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/06-lcd/pictures/zz.png)
 
 
 ### Custom characters
@@ -83,4 +83,4 @@ Consider a kitchen alarm with an LCD, one LED and three push buttons: start, +1 
 
 1. Scheme of kitchen alarm; do not forget the supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values.
 
-   ![your figure]()
+   ![Scheme](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/06-lcd/pictures/Schematic_New%20Project_2021-10-28.png)
