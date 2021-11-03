@@ -11,12 +11,12 @@ Link to this file in your GitHub repository:
 
    | **Push button** | **PC0[A0] voltage** | **ADC value (calculated)** | **ADC value (measured)** |
    | :-: | :-: | :-: | :-: |
-   | Right  | 0&nbsp;V | 0   |  |
-   | Up     | 0.495&nbsp;V | 101 |  |
-   | Down   | 1.203&nbsp;V | 246 |  |
-   | Left   | 1.969&nbsp;V | 402 |  |
-   | Select | 3.182&nbsp;V | 651 |  |
-   | none   | 5&nbsp;V | 1023 |  |
+   | Right  | 0&nbsp;V | 0 | 0 |
+   | Up     | 0.495&nbsp;V | 101 | 98 |
+   | Down   | 1.203&nbsp;V | 246 | 256 |
+   | Left   | 1.969&nbsp;V | 402 | 409 |
+   | Select | 3.182&nbsp;V | 651 | 639 |
+   | none   | 5&nbsp;V | 1023 | 1023 |
    
 ### Table for ADC converter register
 
