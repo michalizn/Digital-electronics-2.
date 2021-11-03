@@ -30,6 +30,14 @@ Link to this file in your GitHub repository:
    | ADC clock prescaler | ADCSRA | ADPS2:0 | 000: Division factor 2, 001: 2, 010: 4, ...|
    | ADC result | ADC | ADCL7:0 and ADCH7:0 | conversion result |
 
+### Analog to digital conversion to the UART transmitter
+
+   | **Function name** | **Function parameter(s)** | **Description** | **Example** |
+   | :-- | :-- | :-- | :-- |
+   | `uart_init` | `UART_BAUD_SELECT(9600, F_CPU)` | Initialize UART to 8N1 and set baudrate to 9600&nbsp;Bd | `uart_init(UART_BAUD_SELECT(9600, F_CPU));` |
+   | `uart_getc` |  |  |
+   | `uart_putc` |  |  |
+   | `uart_puts` |  |  |
 ### Buttons connection
 
 ![Buttons](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/07-uart/images/Capture.PNG)
