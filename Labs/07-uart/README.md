@@ -30,6 +30,10 @@ Link to this file in your GitHub repository:
    | ADC clock prescaler | ADCSRA | ADPS2:0 | 000: Division factor 2, 001: 2, 010: 4, ...|
    | ADC result | ADC | ADCL7:0 and ADCH7:0 | conversion result |
 
+### Buttons connection
+
+![your figure]()
+
 2. Code listing of ACD interrupt service routine for sending data to the LCD/UART and identification of the pressed button. Always use syntax highlighting and meaningful comments:
 
 ```c
