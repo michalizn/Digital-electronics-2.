@@ -35,9 +35,9 @@ Link to this file in your GitHub repository:
    | **Function name** | **Function parameter(s)** | **Description** | **Example** |
    | :-- | :-- | :-- | :-- |
    | `uart_init` | `UART_BAUD_SELECT(9600, F_CPU)` | Initialize UART to 8N1 and set baudrate to 9600&nbsp;Bd | `uart_init(UART_BAUD_SELECT(9600, F_CPU));` |
-   | `uart_getc` |  |  |
-   | `uart_putc` |  |  |
-   | `uart_puts` |  |  |
+   | `uart_getc` | - | Get received byte from ringbuffer. | `uart_getc(0);` |
+   | `uart_putc` | - | Put byte to ringbuffer for transmitting via UART. | `uart_putc(data);` |
+   | `uart_puts` | - | Put string to ringbuffer for transmitting via UART. | `uart_puts("string");` |
 ### Buttons connection
 
 ![Buttons](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/07-uart/images/Capture.PNG)
