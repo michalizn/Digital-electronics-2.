@@ -32,7 +32,7 @@ Link to this file in your GitHub repository:
 
 ### Buttons connection
 
-![your figure]()
+![Buttons](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/07-uart/images/Capture.PNG)
 
 2. Code listing of ACD interrupt service routine for sending data to the LCD/UART and identification of the pressed button. Always use syntax highlighting and meaningful comments:
 
