@@ -15,7 +15,7 @@ Link to this file in your GitHub repository:
    * SPI pins
    * external interrupt pins INT0, INT1
 
-   ![your figure](Images/arduino_uno_pinout.png)
+   ![arduino_uno_pinout](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/08-i2c/images/arduino_uno_pinout.png)
 
 ### I2C
 
@@ -94,4 +94,4 @@ Consider an application for temperature and humidity measurement and display. Us
 
 1. FSM state diagram picture of meteo station. The image can be drawn on a computer or by hand. Concise name of individual states and describe the transitions between them.
 
-   ![your figure]()
+   ![FSM state diagram](https://github.com/michalizn/Digital-electronics-2/blob/main/Labs/08-i2c/images/ss.drawio.png)
