@@ -54,9 +54,9 @@
 /**
  * @name Definition of ports and pins
  */
-#define TWI_PORT PORTC /**< @brief Port of TWI hardware unit */
-#define TWI_SDA_PIN 4 /**< @brief SDA pin of TWI hardware unit */
-#define TWI_SCL_PIN 5 /**< @brief SCL pin of TWI hardware unit */
+#define TWI_PORT PORTD /**< @brief Port of TWI hardware unit */
+#define TWI_SDA_PIN 1 /**< @brief SDA pin of TWI hardware unit */
+#define TWI_SCL_PIN 0 /**< @brief SCL pin of TWI hardware unit */
 
 
 /**

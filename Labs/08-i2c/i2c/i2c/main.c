@@ -26,12 +26,17 @@
 
 /* Variables ---------------------------------------------------------*/
 typedef enum {              // FSM declaration
-    STATE_IDLE = 1,
+    /*
+	STATE_IDLE = 1,
     STATE_WRITE,
     STATE_READ_int,
     STATE_READ_frac,
     STATE_READ_checksum,
     STATE_UART
+	*/
+	STATE_IDLE = 1,
+	STATE_ACK,
+	STATE_SEND
     
 } state_t;
 
@@ -48,7 +53,7 @@ int main(void)
     twi_init();
 
     // Initialize UART to asynchronous, 8N1, 9600
-    uart_init(UART_BAUD_SELECT(9600, F_CPU));
+    uart_init(UART_BAUD_SELECT(115200, F_CPU));
 
     // Configure 16-bit Timer/Counter1 to update FSM
     // Set prescaler to 33 ms and enable interrupt
@@ -79,7 +84,8 @@ int main(void)
  *           between 8 and 119.
  **********************************************************************/
 
-ISR(TIMER1_OVF_vect){
+//ISR(TIMER1_OVF_vect){
+	/*
     static state_t state = STATE_IDLE;  // Current state of the FSM
     static uint8_t addr = 0x5c;         // I2C slave address (57, 5c, 68)
     uint8_t result = 1;                 // ACK result from the bus         
@@ -151,9 +157,10 @@ ISR(TIMER1_OVF_vect){
     default:
     state = STATE_IDLE;
     break;
-    }    
-}
-/*
+    }
+	*/    
+//}
+
 ISR(TIMER1_OVF_vect)
 {
     static state_t state = STATE_IDLE;  // Current state of the FSM
@@ -209,4 +216,4 @@ ISR(TIMER1_OVF_vect)
         break;
     }
 }
-*/
+
