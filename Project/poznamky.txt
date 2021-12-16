@@ -1,0 +1,12 @@
+Senzory dostupné v laboratóriu:
+I2C DHT12 humidity and temperature sensor 0x5c / dec 92
+Capacitive soil moisture sensor v1.2
+GL5539 photoresistor
+
+Relé na spínanie obvodov zavlažovania, okien, ventilácie
+
+Čítanie dvoch analogových vstupov
+Displej
+Tlačítka
+
+
